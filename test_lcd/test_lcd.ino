@@ -9,7 +9,7 @@ dht DHT;
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 const int plante = A0;
-const int led = 8;
+//const int led = 8;
 
 void setup() {
   // set up the LCD's number of columns and rows:
@@ -18,7 +18,7 @@ void setup() {
   //lcd.print("hello, world!");
   // Capteur d'hygrométrie
   pinMode(plante, INPUT);
-  pinMode(led, OUTPUT);
+//  pinMode(led, OUTPUT);
 }
 
 void loop() {
@@ -40,10 +40,11 @@ void loop() {
 
   if (temper >= 28) {
     //ouvrir serre
-    digitalWrite(led, HIGH);
+    digitalWrite(8, HIGH);
   }
   else{
-    //rien faire
+    //fermer la serre
+    digitalWrite(8, LOW);
   }
   String tempv = "Temperature : ";
   String temp = tempv + temper ;
